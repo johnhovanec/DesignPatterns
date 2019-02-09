@@ -3,10 +3,27 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        FriendAddrLabel friendLabel = new FriendAddrLabel();
-        System.out.printf(friendLabel.getName());
+        FriendAddrLabel friendLabel = new FriendAddrLabel(
+                "Joe Test",
+                "123 Main Street",
+                "Helena",
+                "MT",
+                "82302"
+        );
+
+        CompanyAddrLabel companyLabel = new CompanyAddrLabel(
+                "Rebecca Rollins",
+                "Principal Architect",
+                "A1 Technology",
+                "85 Main Street",
+                "Watertown",
+                "MA",
+                "021225"
+        );
 
         String[] resultLabel = LabelGenerator.getLabelLines(friendLabel);
+        resultLabel = LabelGenerator.getLabelLines(companyLabel);
+        System.out.printf(String.valueOf(resultLabel[0]));
     }
 }
 
@@ -46,30 +63,38 @@ abstract class AddrLabel implements AddrLabelInterface {
 }
 
 class FriendAddrLabel extends AddrLabel {
-    private String name = "Joe Test";
-    private String street = "Main St.";
-    private String city = "Helena";
-    private String state = "MT";
-    private String zipCode = "85938";
+
+    public FriendAddrLabel(String name, String street, String city, String state, String zipCode) {
+        this.name = name;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+    }
+    private String name;
+    private String street;
+    private String city;
+    private String state;
+    private String zipCode;
 
     @Override
     public String getName() {
-        return name;
+        return name + "%n";
     }
 
     @Override
     public String getStreet() {
-        return street;
+        return street + "%n";
     }
 
     @Override
     public String getCity() {
-        return city;
+        return city + ", ";
     }
 
     @Override
     public String getState() {
-        return state;
+        return state + " ";
     }
 
     @Override
@@ -79,13 +104,23 @@ class FriendAddrLabel extends AddrLabel {
 }
 
 class CompanyAddrLabel extends AddrLabel {
-    private String attnName = "Joe Attn";
-    private String title= "Director of Operations";
-    private String companyName= "ABC Co.";
-    private String street = " 44 Main St.";
-    private String city = "Baltimore";
-    private String state = "MD";
-    private String zipCode = "21212";
+
+    public CompanyAddrLabel(String attnName, String title, String companyName, String street, String city, String state, String zipCode) {
+        this.attnName = attnName;
+        this.title = title;
+        this.companyName = companyName;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+    }
+    private String attnName;
+    private String title;
+    private String companyName;
+    private String street;
+    private String city;
+    private String state;
+    private String zipCode;
 
     @Override
     public String getAttnName() {
@@ -175,6 +210,6 @@ class ProfessionalAddrLabel extends AddrLabel {
 
 class LabelGenerator {
     public static String[] getLabelLines(AddrLabelInterface addr) {
-        return new String [] {addr.getName(), addr.getStreet(), addr.getCity(), addr.getState(), addr.getZipCode()};
+        return new String [] {addr.getName().concat(addr.getStreet()).concat(addr.getCity()).concat(addr.getState()).concat(addr.getZipCode())};
     }
 }
