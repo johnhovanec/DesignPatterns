@@ -1,29 +1,52 @@
 package com.company;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Main {
 
     public static void main(String[] args) {
         FriendAddrLabel friendLabel = new FriendAddrLabel(
-                "Joe Test",
-                "123 Main Street",
-                "Helena",
-                "MT",
-                "82302"
+            "Joe Test",
+            "123 Main Street",
+            "Helena",
+            "MT",
+            "82302"
         );
 
         CompanyAddrLabel companyLabel = new CompanyAddrLabel(
-                "Rebecca Rollins",
-                "Principal Architect",
-                "A1 Technology",
-                "85 Main Street",
-                "Watertown",
-                "MA",
-                "021225"
+            "Rebecca Rollins",
+            "Principal Architect",
+            "A1 Technology",
+            "85 Main Street",
+            "Watertown",
+            "MA",
+            "02125"
         );
 
-        String[] resultLabel = LabelGenerator.getLabelLines(friendLabel);
-        resultLabel = LabelGenerator.getLabelLines(companyLabel);
-        System.out.printf(String.valueOf(resultLabel[0]));
+        ProfessionalAddrLabel professionalLabel = new ProfessionalAddrLabel(
+            "James Tester",
+            "M.D.",
+            "55 Main Street",
+            "603",
+            "Towson",
+            "MD",
+            "21204"
+        );
+
+        String[] labelFriend = LabelGenerator.getLabelLines((friendLabel));
+        String[] labelCompany = LabelGenerator.getLabelLines((companyLabel));
+        String[] labelProfessional = LabelGenerator.getLabelLines((professionalLabel));
+
+        String[][] labels = {labelFriend, labelCompany, labelProfessional};
+
+        for (int i = 0; i < labels.length; i++) {
+            for (int j = 0; j < labels[i].length; j++ ) {
+                System.out.printf(labels[i][j]);
+            }
+            System.out.println('\n');
+        }
     }
 }
 
@@ -114,6 +137,7 @@ class CompanyAddrLabel extends AddrLabel {
         this.state = state;
         this.zipCode = zipCode;
     }
+
     private String attnName;
     private String title;
     private String companyName;
@@ -124,92 +148,113 @@ class CompanyAddrLabel extends AddrLabel {
 
     @Override
     public String getAttnName() {
-        return "ATTN: " + attnName;
+        return "ATTN: " + attnName + "%n";
     }
 
     @Override
     public String getTitle() {
-        return title;
+        return title + "%n";
     }
 
     @Override
     public String getCompanyName() {
-        return companyName;
+        return companyName + "%n";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "";
     }
 
     @Override
     public String getStreet() {
-        return street;
+        return street + "%n";
     }
 
     @Override
     public String getCity() {
-        return null;
+        return city + ", ";
     }
 
     @Override
     public String getState() {
-        return null;
+        return state + " ";
     }
 
     @Override
     public String getZipCode() {
-        return null;
+        return zipCode;
     }
 }
 
 class ProfessionalAddrLabel extends AddrLabel {
-    private String name = "Joe Prof";
-    private String professionalSuffix= "M.D.";
-    private String street = "121 Main St.";
-    private String suite= "321";
-    private String city = "Baltimore";
-    private String state = "MD";
-    private String zipCode = "21212";
+    public ProfessionalAddrLabel(String name, String professionalSuffix, String street, String suite, String city, String state, String zipCode) {
+        this.name = name;
+        this.professionalSuffix = professionalSuffix;
+        this.street = street;
+        this.suite = suite;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+    }
+    private String name;
+    private String professionalSuffix;
+    private String street;
+    private String suite;
+    private String city;
+    private String state;
+    private String zipCode;
 
     @Override
     public String getName() {
-        return null;
+        return name + " ";
     }
 
     @Override
     public String getProfessionalSuffix() {
-        return professionalSuffix;
+        return professionalSuffix + "%n";
     }
 
     @Override
     public String getStreet() {
-        return null;
+        return street + ", ";
     }
 
     @Override
     public String getSuiteNum() {
-        return suite;
+        return suite + "%n";
     }
 
     @Override
     public String getCity() {
-        return null;
+        return city + ", ";
     }
 
     @Override
     public String getState() {
-        return null;
+        return state + " ";
     }
 
     @Override
     public String getZipCode() {
-        return null;
+        return zipCode + "%n";
     }
 }
 
 class LabelGenerator {
     public static String[] getLabelLines(AddrLabelInterface addr) {
-        return new String [] {addr.getName().concat(addr.getStreet()).concat(addr.getCity()).concat(addr.getState()).concat(addr.getZipCode())};
+        return new String [] {
+            addr.getAttnName(),
+            addr.getTitle(),
+            addr.getName(),
+            addr.getCompanyName(),
+            addr.getNameSuffix(),
+            addr.getProfessionalSuffix(),
+            addr.getStreet(),
+            addr.getSuiteNum(),
+            addr.getCity(),
+            addr.getState(),
+            addr.getZipCode()
+        };
     }
 }
