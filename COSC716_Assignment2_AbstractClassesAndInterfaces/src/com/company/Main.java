@@ -1,9 +1,5 @@
 package com.company;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -86,7 +82,6 @@ abstract class AddrLabel implements AddrLabelInterface {
 }
 
 class FriendAddrLabel extends AddrLabel {
-
     public FriendAddrLabel(String name, String street, String city, String state, String zipCode) {
         this.name = name;
         this.street = street;
@@ -94,6 +89,7 @@ class FriendAddrLabel extends AddrLabel {
         this.state = state;
         this.zipCode = zipCode;
     }
+
     private String name;
     private String street;
     private String city;
@@ -207,7 +203,7 @@ class ProfessionalAddrLabel extends AddrLabel {
 
     @Override
     public String getName() {
-        return name + " ";
+        return name + ", ";
     }
 
     @Override
@@ -221,9 +217,7 @@ class ProfessionalAddrLabel extends AddrLabel {
     }
 
     @Override
-    public String getSuiteNum() {
-        return suite + "%n";
-    }
+    public String getSuiteNum() { return "Suite " + suite + "%n"; }
 
     @Override
     public String getCity() {
