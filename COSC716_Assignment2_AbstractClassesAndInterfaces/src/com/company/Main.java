@@ -31,15 +31,14 @@ public class Main {
             "21204"
         );
 
-        String[] labelFriend = LabelGenerator.getLabelLines((friendLabel));
-        String[] labelCompany = LabelGenerator.getLabelLines((companyLabel));
-        String[] labelProfessional = LabelGenerator.getLabelLines((professionalLabel));
-
-        String[][] labels = {labelFriend, labelCompany, labelProfessional};
+        AddrLabelInterface[] labels = {friendLabel, companyLabel, professionalLabel};
 
         for (int i = 0; i < labels.length; i++) {
-            for (int j = 0; j < labels[i].length; j++ ) {
-                System.out.printf(labels[i][j]);
+            AddrLabelInterface currentLabel = labels[i];
+            String[] resultLabel = LabelGenerator.getLabelLines(currentLabel);
+
+            for(int j = 0; j < resultLabel.length; j++) {
+                System.out.printf(resultLabel[j]);
             }
             System.out.println('\n');
         }
