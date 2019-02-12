@@ -192,6 +192,7 @@ class ProfessionalAddrLabel extends AddrLabel {
         this.state = state;
         this.zipCode = zipCode;
     }
+    
     private String name;
     private String professionalSuffix;
     private String street;
