@@ -13,4 +13,13 @@ public class MenuItem {
 	int category;
 	boolean healthy;
 	double price;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getPrice() {
+		return Double.toString(price);
+	}
 }
+
