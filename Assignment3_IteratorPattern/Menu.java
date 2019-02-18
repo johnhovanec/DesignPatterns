@@ -24,10 +24,18 @@ public class Menu {
 	public MenuIterator getPriceIterator(double price) {
 		return new PriceIterator(this, price); 
 	}
+	
+	public MenuIterator getHeartHealthyIterator() {
+		return new HeartHealthyIterator(this); 
+	}
 	 
 	public void add(String name, int category, boolean healthy, double price) {
 		MenuItem item = new MenuItem(name, category, healthy, price);
 		menuItems.add(item);
+	}
+	
+	public void delete(MenuItem item) {
+		
 	}
 
 	private class AllItemsIterator implements MenuIterator {
@@ -136,5 +144,46 @@ public class Menu {
 		}			
 	}
 	
+	private class HeartHealthyIterator implements MenuIterator {
+			
+			private Menu menu;
+			private boolean healthy;
+			MenuItem nextCandidate;
+			int index = 0;
+			
+			public HeartHealthyIterator(Menu menu) {
+				this.menu = menu;
+			}
+			
+			@Override
+			public boolean hasNext() {
+				boolean match = false;
+				
+				while (index < menu.menuItems.size()) {
+					MenuItem temp = menu.menuItems.get(index);
+					if (menu.menuItems.get(index).healthy == true) {
+						match = true;
+						nextCandidate= temp;
+						break;
+					}
+					index++;
+				}
+				
+				if (!match)
+					nextCandidate = null;
+				else
+					index++;
+				
+				return match;
+			}
+	
+			@Override
+			public MenuItem next() {
+				if (nextCandidate == null)
+					throw new NoSuchElementException();
+				else
+					return nextCandidate;
+			}			
+		}
+	
 }
-
