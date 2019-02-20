@@ -35,7 +35,9 @@ public class Menu {
 	}
 	
 	public void delete(MenuItem item) {
-		
+		int index = menuItems.indexOf(item);
+		System.out.println("Deleting " + item.name + " at index " + index + "\n");
+		menuItems.remove(index);
 	}
 
 	private class AllItemsIterator implements MenuIterator {
@@ -56,6 +58,20 @@ public class Menu {
 		public MenuItem next() {
 			return menu.menuItems.get(current++);
 		}
+
+		@Override
+		public MenuItem remove() {
+			int numberOfItems = menu.menuItems.size();
+			if (current < numberOfItems)
+				return menu.menuItems.get(current--);
+			else if(current == numberOfItems) {
+				current = numberOfItems - 1;
+				return menu.menuItems.get(current);
+			}
+				
+			else
+				return menu.menuItems.get(0);
+		}		
 	}
 	
 	private class ItemIterator implements MenuIterator {
@@ -98,7 +114,13 @@ public class Menu {
 					throw new NoSuchElementException();
 				else
 					return nextCandidate;
-			}			
+			}
+
+			@Override
+			public MenuItem remove() {
+				// TODO Auto-generated method stub
+				return null;
+			}		
 		}
 	
 	private class PriceIterator implements MenuIterator {
@@ -141,6 +163,12 @@ public class Menu {
 				throw new NoSuchElementException();
 			else
 				return nextCandidate;
+		}
+
+		@Override
+		public MenuItem remove() {
+			// TODO Auto-generated method stub
+			return null;
 		}			
 	}
 	
@@ -183,7 +211,13 @@ public class Menu {
 					throw new NoSuchElementException();
 				else
 					return nextCandidate;
-			}			
+			}
+
+			@Override
+			public MenuItem remove() {
+				// TODO Auto-generated method stub
+				return null;
+			}		
 		}
 	
 }
