@@ -6,4 +6,6 @@ public interface MenuIterator {
 	
 	// returns current item and advances to next item
 	public MenuItem next();
+	
+	public MenuItem remove();
 }
