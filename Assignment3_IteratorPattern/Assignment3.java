@@ -1,6 +1,5 @@
 package COSC716_Assignment3_IteratorPattern;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Assignment3 {
@@ -83,25 +82,37 @@ public class Assignment3 {
 		}
 		System.out.println();
 		
-		// 8 – Remove menu item
-		Scanner readInput = new Scanner(System.in);
-		char key;
+		// 8 – Remove a menu item
 		System.out.println("REMOVING ITEM FROM MENU\n");
 		itr = eatAtJoesMenu.getAllItemsIterator();
+		MenuItem current;
+		Scanner scanner = new Scanner(System.in);
 		
 		while (itr.hasNext()) {
-			System.out.println("ITERATING THOUGH ALL ITEMS. PRESS \"d\" TO DELETE ITEM"); 
+			System.out.println("ITERATING THOUGH ALL ITEMS..."); 
 			item = itr.next();
 			System.out.println(item.getName() + " $" + item.getPrice());
-			System.out.println("Press d to delete this item, or press return to continue.");
+			System.out.println("Press return to continue or \'d\' to delete");
 			
-			try {
-				char c = (char) System.in.read();
-
-			} catch (IOException e) {
-				e.printStackTrace();
+			String readLine = scanner.nextLine();
+			if (readLine.isEmpty())
+				continue;
+			else if (readLine.equalsIgnoreCase("d")) {
+				eatAtJoesMenu.delete(item);
+				item = itr.remove();
+				System.out.println();;
 			}
 		}
+		scanner.close();
 		
+		// Display all menu items to check item was added
+		itr = eatAtJoesMenu.getAllItemsIterator();
+		System.out.println("ALL MENU ITEMS AFTER DELETE:"); 
+		while (itr.hasNext()) {
+			item = itr.next();
+			System.out.println(item.getName() + " $" + item.getPrice());
+		}
+		System.out.println();
 	}
+	
 }
