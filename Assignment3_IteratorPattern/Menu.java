@@ -142,7 +142,7 @@ public class Menu {
 			
 			while (index < menu.menuItems.size()) {
 				MenuItem temp = menu.menuItems.get(index);
-				if (menu.menuItems.get(index).price <= price) {
+				if (menu.menuItems.get(index).price <= price && menu.menuItems.get(index).category == menu.MAIN_DISH) {
 					match = true;
 					nextCandidate= temp;
 					break;
