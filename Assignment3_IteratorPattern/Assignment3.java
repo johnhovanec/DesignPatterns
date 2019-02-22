@@ -12,7 +12,7 @@ public class Assignment3 {
 		eatAtJoesMenu.add(new MenuItem("Creme Caramel", Menu.DESSERT, Menu.NOT_HEART_HEALTHY, 7.25));
 		eatAtJoesMenu.add(new MenuItem("Garden Salad", Menu.APPETIZERS, Menu.HEART_HEALTHY, 6.95));
 		eatAtJoesMenu.add(new MenuItem("Egg Rolls", Menu.APPETIZERS, Menu.NOT_HEART_HEALTHY, 3.75));
-		eatAtJoesMenu.add(new MenuItem("Fish Tacos", Menu.MAIN_DISH, Menu.HEART_HEALTHY, 17.55));
+		eatAtJoesMenu.add(new MenuItem("Fish Tacos", Menu.MAIN_DISH, Menu.HEART_HEALTHY, 14.55));
 		
 		// 1 – Display all menu items
 		MenuItem item;
@@ -62,7 +62,7 @@ public class Assignment3 {
 				
 		// 6 – Display all main dishes under a specified price
 		itr = eatAtJoesMenu.getPriceIterator(15.00);
-		System.out.println("ALL MENU ITEMS UNDER $15.00:"); 
+		System.out.println("ALL MENU MAIN DISH ITEMS UNDER $15.00:"); 
 		while (itr.hasNext()) {
 			item = itr.next();
 			System.out.println(item.getName() + " $" + item.getPrice());
