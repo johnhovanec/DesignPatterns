@@ -7,12 +7,12 @@ public class Assignment3 {
 	public static void main(String[] args) {
 		Menu eatAtJoesMenu = new Menu();
 		
-		eatAtJoesMenu.add("Lobster", Menu.MAIN_DISH, Menu.NOT_HEART_HEALTHY, 24.99);
-		eatAtJoesMenu.add("Rice Pudding", Menu.DESSERT, Menu.NOT_HEART_HEALTHY, 3.50);
-		eatAtJoesMenu.add("Creme Caramel", Menu.DESSERT, Menu.NOT_HEART_HEALTHY, 7.25);
-		eatAtJoesMenu.add("Garden Salad", Menu.APPETIZERS, Menu.HEART_HEALTHY, 6.95);
-		eatAtJoesMenu.add("Egg Rolls", Menu.APPETIZERS, Menu.NOT_HEART_HEALTHY, 3.75);
-		eatAtJoesMenu.add("Fish Tacos", Menu.MAIN_DISH, Menu.HEART_HEALTHY, 17.55);
+		eatAtJoesMenu.add(new MenuItem("Lobster", Menu.MAIN_DISH, Menu.NOT_HEART_HEALTHY, 24.99));
+		eatAtJoesMenu.add(new MenuItem("Rice Pudding", Menu.DESSERT, Menu.NOT_HEART_HEALTHY, 3.50));
+		eatAtJoesMenu.add(new MenuItem("Creme Caramel", Menu.DESSERT, Menu.NOT_HEART_HEALTHY, 7.25));
+		eatAtJoesMenu.add(new MenuItem("Garden Salad", Menu.APPETIZERS, Menu.HEART_HEALTHY, 6.95));
+		eatAtJoesMenu.add(new MenuItem("Egg Rolls", Menu.APPETIZERS, Menu.NOT_HEART_HEALTHY, 3.75));
+		eatAtJoesMenu.add(new MenuItem("Fish Tacos", Menu.MAIN_DISH, Menu.HEART_HEALTHY, 17.55));
 		
 		// 1 – Display all menu items
 		MenuItem item;
@@ -70,8 +70,8 @@ public class Assignment3 {
 		System.out.println();
 		
 		// 7 – Add menu item
-		System.out.println("ADDING NEW ITEM TO MENU\n");
-		eatAtJoesMenu.add("Tomato Soup", Menu.APPETIZERS, Menu.HEART_HEALTHY, 4.15);
+		System.out.println("ADDING NEW ITEM TO MENU \n");
+		eatAtJoesMenu.add(new MenuItem("Tomato Soup", Menu.APPETIZERS, Menu.HEART_HEALTHY, 4.15));
 		
 		// Display all menu items to check item was added
 		itr = eatAtJoesMenu.getAllItemsIterator();
@@ -85,7 +85,6 @@ public class Assignment3 {
 		// 8 – Remove a menu item
 		System.out.println("REMOVING ITEM FROM MENU\n");
 		itr = eatAtJoesMenu.getAllItemsIterator();
-		MenuItem current;
 		Scanner scanner = new Scanner(System.in);
 		
 		while (itr.hasNext()) {
@@ -98,14 +97,13 @@ public class Assignment3 {
 			if (readLine.isEmpty())
 				continue;
 			else if (readLine.equalsIgnoreCase("d")) {
-				eatAtJoesMenu.delete(item);
-				item = itr.remove();
+				eatAtJoesMenu.delete(itr);
 				System.out.println();;
 			}
 		}
 		scanner.close();
 		
-		// Display all menu items to check item was added
+		// Display all menu items after delete
 		itr = eatAtJoesMenu.getAllItemsIterator();
 		System.out.println("ALL MENU ITEMS AFTER DELETE:"); 
 		while (itr.hasNext()) {
