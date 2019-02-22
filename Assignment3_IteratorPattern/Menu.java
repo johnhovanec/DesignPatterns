@@ -29,15 +29,14 @@ public class Menu {
 		return new HeartHealthyIterator(this); 
 	}
 	 
-	public void add(String name, int category, boolean healthy, double price) {
-		MenuItem item = new MenuItem(name, category, healthy, price);
+	public void add(MenuItem item) {
 		menuItems.add(item);
 	}
 	
-	public void delete(MenuItem item) {
-		int index = menuItems.indexOf(item);
-		System.out.println("Deleting " + item.name + " at index " + index + "\n");
-		menuItems.remove(index);
+	public void delete(MenuIterator itr) {
+		MenuItem item = itr.remove();
+		System.out.println("Deleting "  + item.name + " at index " + menuItems.indexOf(item) + "\n");
+		menuItems.remove(menuItems.indexOf(item));
 	}
 
 	private class AllItemsIterator implements MenuIterator {
@@ -62,13 +61,15 @@ public class Menu {
 		@Override
 		public MenuItem remove() {
 			int numberOfItems = menu.menuItems.size();
-			if (current < numberOfItems)
-				return menu.menuItems.get(current--);
-			else if(current == numberOfItems) {
+			if (current < numberOfItems) {
+				int removeIndex = current - 1;
+				current--;
+				return menu.menuItems.get(removeIndex);
+			}
+			else if (current == numberOfItems) {
 				current = numberOfItems - 1;
 				return menu.menuItems.get(current);
 			}
-				
 			else
 				return menu.menuItems.get(0);
 		}		
