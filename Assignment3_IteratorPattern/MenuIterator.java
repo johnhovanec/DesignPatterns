@@ -7,5 +7,6 @@ public interface MenuIterator {
 	// returns current item and advances to next item
 	public MenuItem next();
 	
+	// used to remove the current item and maintain position during iterating
 	public MenuItem remove();
 }
