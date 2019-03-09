@@ -1,7 +1,12 @@
+
 package Commands;
 
 import Aggregator.*;
 
+/**
+ *
+ * @author dierbach
+ */
 public class CMDGetMenu {
     
     private Aggregator agg;
