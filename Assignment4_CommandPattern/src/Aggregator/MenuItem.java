@@ -1,10 +1,5 @@
-
 package Aggregator;
 
-/**
- *
- * @author dierbach
- */
 public class MenuItem {
     private int item_num;
     private String description;

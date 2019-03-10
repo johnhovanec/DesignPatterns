@@ -9,7 +9,8 @@ public class Menu {
         initMenu();
     }
     
-    public Menu(Menu otherMenu){   // copy constructor
+    public Menu(Menu otherMenu){
+    	menu_items = new MenuItem[10];		// copy constructor
         System.arraycopy(otherMenu.menu_items, 0, menu_items, 0, 
                          menu_items.length);
     }
@@ -23,8 +24,11 @@ public class Menu {
     }
     
     public boolean hasNext(){
-        if(current == menu_items.length - 1)
+        if(current == menu_items.length)
             return false;
+        
+        if(current == menu_items.length - 1)
+        	return menu_items[current] != null;
         
         return menu_items[current + 1] != null;
     }

@@ -1,13 +1,8 @@
-
 package Commands;
 
 import Aggregator.*;
 
-/**
- *
- * @author dierbach
- */
-public class CMDGetMenu {
+public class CMDGetMenu implements Command{
     
     private Aggregator agg;
     
@@ -16,9 +11,9 @@ public class CMDGetMenu {
     }
     
     public Object execute(){
-    return new Menu(agg.getMenu()); // if copy constructor implemented
-    // or
-    // return agg.getMenu().clone(); // if clone method implemented 
+	    return new Menu(agg.getMenu()); // if copy constructor implemented
+	    // or
+	    // return agg.getMenu().clone(); // if clone method implemented 
     }
     
 }

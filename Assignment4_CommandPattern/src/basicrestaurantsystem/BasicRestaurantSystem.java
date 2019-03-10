@@ -6,13 +6,15 @@
 package basicrestaurantsystem;
 import java.util.Scanner;
 
-import Aggregator.Aggregator;;
+import Aggregator.Aggregator;
+import SystemInterface.SystemInterface;
 
 public class BasicRestaurantSystem {
 	
     public static void main(String[] args) {
     	
-        Aggregator agg = new Aggregator();
+        Aggregator aggregator = new Aggregator();
+        SystemInterface systemInterface = new SystemInterface();
         
         System.out.println("Welcome to the Basic Restaurant System");
         System.out.printf("Please choose from the following options:\n"
@@ -28,7 +30,10 @@ public class BasicRestaurantSystem {
 		switch (readLine) {
 		case "1":
 			// Display Menu
-			
+			String[] menuItems = SystemInterface.getMenu();
+			for (String item : menuItems) { 
+			    System.out.println(item);
+			}
 			break;
 		case "2":
 			// Submit Order

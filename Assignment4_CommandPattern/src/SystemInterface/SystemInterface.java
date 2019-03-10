@@ -1,14 +1,9 @@
-
 package SystemInterface;
 
 import Aggregator.*;
 import Commands.Invoker;
 import java.util.ArrayList;
 
-/**
- *
- * @author dierbach
- */
 public class SystemInterface {
     
     public static String[] getMenu(){
@@ -21,7 +16,18 @@ public class SystemInterface {
             displayLines.add(menu.getNextItem().toString());
         }
         
-        // convert ArrayList<String> to array of Strings
-        return (String[]) displayLines.toArray();
+        return (String[]) displayLines.toArray(new String[displayLines.size()]);
+    }
+    
+    public static String[] submitOrder() {
+    	ArrayList<String> displayLines = new ArrayList<>();
+    	return (String[]) displayLines.toArray();
+    }
+    
+    public static String[] getTab() {
+    	ArrayList<String> displayLines = new ArrayList<>();
+    	return (String[]) displayLines.toArray();
     }
 }
+
+
