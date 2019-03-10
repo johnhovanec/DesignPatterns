@@ -1,10 +1,5 @@
-
 package Aggregator;
 
-/**
- *
- * @author dierbach
- */
 public class OrderItem {
     
     private int item_num;

@@ -1,10 +1,5 @@
-
 package Aggregator;
 
-/**
- *
- * @author dierbach
- */
 public class Menu {
     private MenuItem[] menu_items;
     private int current;
@@ -39,7 +34,6 @@ public class Menu {
     }
     
     // --- private methods
-    
     private void initMenu(){
         for(int i = 0; i < menu_items.length; i++)
             menu_items[i] = null;
