@@ -10,6 +10,7 @@ public class Aggregator {
         populateMenu();
         
         orders = new Orders();
+        
     }
     
     public Menu getMenu(){
@@ -19,6 +20,11 @@ public class Aggregator {
     public Orders getOrders(){
         return orders;
     }
+    
+	public Orders submitOrder() {
+		
+		return null;
+	}
     
     // --- private methods
     
@@ -34,5 +40,6 @@ public class Aggregator {
         menu.addItem(new MenuItem(9, "Kalbi", 19.80));
         menu.addItem(new MenuItem(10, "Chap Chae", 11.80));
     }
-    
+
+
 }

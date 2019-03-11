@@ -19,15 +19,16 @@ public class SystemInterface {
         return (String[]) displayLines.toArray(new String[displayLines.size()]);
     }
     
-    public static String[] submitOrder() {
-    	ArrayList<String> displayLines = new ArrayList<>();
-    	return (String[]) displayLines.toArray();
-    }
-    
-    public static String[] getTab() {
-    	ArrayList<String> displayLines = new ArrayList<>();
-    	return (String[]) displayLines.toArray();
-    }
+//    public static String[] submitOrder(int orderItem) {
+//    	Orders orders = Invoker.submitOrder(orderItem);
+//    	ArrayList<String> displayLines = new ArrayList<>();
+//    	return (String[]) displayLines.toArray();
+//    }
+//    
+//    public static String[] getTab() {
+//    	ArrayList<String> displayLines = new ArrayList<>();
+//    	return (String[]) displayLines.toArray();
+//    }
 }
 
 
