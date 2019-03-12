@@ -25,10 +25,11 @@ public class SystemInterface {
 //    	return (String[]) displayLines.toArray();
 //    }
 //    
-//    public static String[] getTab() {
-//    	ArrayList<String> displayLines = new ArrayList<>();
-//    	return (String[]) displayLines.toArray();
-//    }
+    public static String[] getTab() {
+    	Tab	tab = Invoker.getTab();
+    	ArrayList<String> displayLines = new ArrayList<>();
+    	return (String[]) displayLines.toArray();
+    }
 }
 
 

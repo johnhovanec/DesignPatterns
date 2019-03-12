@@ -19,7 +19,7 @@ public class BasicRestaurantSystem {
         String readLine = "";
         
         while(!readLine.equalsIgnoreCase("X")) {
-        	System.out.println("Welcome to the Basic Restaurant System");
+        	System.out.println("\n----- Welcome to the Basic Restaurant System -----\n");
             System.out.printf("Please choose from the following options:\n"
             		+ "1. Display Menu\n"
             		+ "2. Submit Order\n"
@@ -31,11 +31,12 @@ public class BasicRestaurantSystem {
     		switch (readLine) {
     		case "1":
     			// Display Menu
+    			System.out.printf("\n------- Our Menu -------\n");
     			String[] menuItems = SystemInterface.getMenu();
     			for (String item : menuItems) { 
     			    System.out.println(item);
     			}
-    			System.out.printf("==============================\n\n");
+    			System.out.printf("\n------------------------\n");
     			break;
     		case "2":
     			// Submit Order
@@ -58,6 +59,12 @@ public class BasicRestaurantSystem {
     			break;
     		case "3":
     			// Display Tab
+    			System.out.printf("\n------- Your Tab -------\n");
+    			String[] tabItems = SystemInterface.getMenu();
+    			for (String item : tabItems) { 
+    			    System.out.println(item);
+    			}
+    			System.out.printf("\n------------------------\n");
     			break;
     		case "X":
     			

@@ -2,18 +2,16 @@ package Commands;
 
 import Aggregator.*;
 
-public class CMDGetTab {
+public class CMDGetTab implements Command{
 
 	private Aggregator agg;
 
 	public CMDGetTab(Aggregator agg){
         this.agg = agg;
     }
-	
-//	public Object execute(){
-//	    return new Tab(agg.getTab()); // if copy constructor implemented
-//	    // or
-//	    // return agg.getMenu().clone(); // if clone method implemented 
-//	    }
+
+	public Tab execute() {
+		return new Tab(agg.getTab());
+	}
 
 }
