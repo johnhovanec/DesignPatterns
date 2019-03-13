@@ -24,6 +24,9 @@ public class Orders {
         order_items[findAvailIndex()] = item;
     }
     
+    protected OrderItem[] getOrderItems() {
+    	return this.order_items;
+    }
     
     
     public int getLength(Orders order){

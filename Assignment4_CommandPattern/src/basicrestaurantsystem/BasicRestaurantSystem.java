@@ -60,7 +60,7 @@ public class BasicRestaurantSystem {
     		case "3":
     			// Display Tab
     			System.out.printf("\n------- Your Tab -------\n");
-    			String[] tabItems = SystemInterface.getMenu();
+    			String[] tabItems = SystemInterface.getTab();
     			for (String item : tabItems) { 
     			    System.out.println(item);
     			}

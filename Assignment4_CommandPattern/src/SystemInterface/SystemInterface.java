@@ -28,6 +28,12 @@ public class SystemInterface {
     public static String[] getTab() {
     	Tab	tab = Invoker.getTab();
     	ArrayList<String> displayLines = new ArrayList<>();
+    	
+    	tab.reset();
+        while(tab.hasNext()){
+            displayLines.add(tab.getNextItem().toString());
+        }
+    	
     	return (String[]) displayLines.toArray();
     }
 }

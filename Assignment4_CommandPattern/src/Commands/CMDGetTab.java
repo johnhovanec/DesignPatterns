@@ -10,7 +10,7 @@ public class CMDGetTab implements Command{
         this.agg = agg;
     }
 
-	public Tab execute() {
+	public Object execute() {
 		return new Tab(agg.getTab());
 	}
 

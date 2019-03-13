@@ -37,6 +37,14 @@ public class Menu {
         return menu_items[current++];
     }
     
+    protected MenuItem getOrderItem(int itemNumber) {
+    	return menu_items[itemNumber - 1];
+    }
+    
+//    protected MenuItem getOrderItemDescription(int itemNumber) {
+//    	return menu_items[itemNumber - 1].getDescription();
+//    }
+    
     // --- private methods
     private void initMenu(){
         for(int i = 0; i < menu_items.length; i++)
