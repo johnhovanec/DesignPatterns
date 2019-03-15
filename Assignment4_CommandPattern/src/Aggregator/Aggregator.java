@@ -69,11 +69,11 @@ public class Aggregator {
     	
     	for (int i = 0; i < items.length; i++) { 
     		if (items[i]!= null) {
-    			System.out.println(items[i].getItemNum());
+    			//System.out.println(items[i].getItemNum());
     		    int itemNumber = items[i].getItemNum();
     		    
     		    MenuItem menuItem = menu.getOrderItem(itemNumber);
-    		    System.out.println(menuItem.getDescription());
+    		    //System.out.println(menuItem.getDescription());
     		    
     		    tab.addItem(menuItem); /// menuItem.getDescription() + "\t" + menuItem.getPrice();
     		    tab.setTotal(menuItem.getPrice()); //= subtotal + menuItem.getPrice();

@@ -7,6 +7,7 @@ public class Tab {
 	
 	public Tab() {
 		tab_items = new MenuItem[10];
+		initTab();
 	}
 	
 	public Tab(Tab otherTab) {
@@ -22,13 +23,17 @@ public class Tab {
     }
 	
 	public boolean hasNext(){
-        if(current == tab_items.length)
-            return false;
-        
-        if(current == tab_items.length - 1)
-        	return tab_items[current] != null;
-        
-        return tab_items[current + 1] != null;
+//        if(current == tab_items.length)
+//            return false;
+//        
+//        if(current == tab_items.length - 1)
+//        	return tab_items[current] != null;
+//     
+//        return tab_items[current + 1] != null;
+		if(tab_items[current + 1] == null)
+			return false;
+		
+		return true;
     }
 	
 	public MenuItem getNextItem(){
@@ -50,5 +55,10 @@ public class Tab {
             i++;
         
         return i;
+    }
+	
+    private void initTab(){
+        for(int i = 0; i < tab_items.length; i++)
+            tab_items[i] = null;
     }
 }

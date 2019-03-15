@@ -33,8 +33,9 @@ public class SystemInterface {
         while(tab.hasNext()){
             displayLines.add(tab.getNextItem().toString());
         }
+        displayLines.add(tab.getNextItem().toString());
     	
-    	return (String[]) displayLines.toArray();
+    	return (String[]) displayLines.toArray(new String[0]);
     }
 }
 
