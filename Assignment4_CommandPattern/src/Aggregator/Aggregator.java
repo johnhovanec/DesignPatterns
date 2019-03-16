@@ -10,7 +10,7 @@ public class Aggregator {
         menu = new Menu();
         populateMenu();
         
-        //orders = new Orders();
+        orders = new Orders();
         //populateOrders();
         
         tab = new Tab();
@@ -25,8 +25,8 @@ public class Aggregator {
         return orders;
     }
     
-	public Orders submitOrder() {
-		//this.orders = orders;
+	public Orders submitOrder(Orders order) {
+		this.orders = order;
 		return orders;
 	}
 	

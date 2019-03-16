@@ -21,8 +21,10 @@ public class SystemInterface {
     
     public static String[] submitOrder(int orderItem) {
     	Orders orders = Invoker.submitOrder(orderItem);
-    	ArrayList<String> displayLines = new ArrayList<>();
-    	return (String[]) displayLines.toArray();
+    	String[] ordersArray = new String[] {orders.toString()};
+    	//ArrayList<String> displayLines = new ArrayList<>();
+    	//return (String[]) displayLines.toArray(new String[displayLines.size()]);
+    	return ordersArray;
     }
     
     public static String[] getTab() {

@@ -1,5 +1,7 @@
 package Aggregator;
 
+import java.util.Arrays;
+
 public class Orders {
     private OrderItem[] order_items;
     private int current;
@@ -13,12 +15,6 @@ public class Orders {
     	System.arraycopy(otherOrder.order_items, 0, order_items, 0, 
     			order_items.length);
     }
-//    
-//    public Orders(Integer num) {
-//    	order_items = new OrderItem[num];
-//    	order_items[0] = num;
-//    	//System.arraycopy(otherOrder.order_items, 0, order_items, 0, order_items.length);
-//    }
     
     public void addItem(OrderItem item){
         order_items[findAvailIndex()] = item;
@@ -46,4 +42,12 @@ public class Orders {
         
         return i;
     }
+
+	@Override
+	public String toString() {
+		int orderNum = order_items[0].getItemNum();
+		return "Order added for item number: " + String.valueOf(orderNum);
+	}
+    
+    
 }
