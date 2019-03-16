@@ -13,12 +13,12 @@ public class Orders {
     	System.arraycopy(otherOrder.order_items, 0, order_items, 0, 
     			order_items.length);
     }
-    
-    public Orders(OrderItem orderItem) {
-    	order_items = new OrderItem[10];
-    	order_items[0] = orderItem;
-    	//System.arraycopy(otherOrder.order_items, 0, order_items, 0, order_items.length);
-    }
+//    
+//    public Orders(Integer num) {
+//    	order_items = new OrderItem[num];
+//    	order_items[0] = num;
+//    	//System.arraycopy(otherOrder.order_items, 0, order_items, 0, order_items.length);
+//    }
     
     public void addItem(OrderItem item){
         order_items[findAvailIndex()] = item;

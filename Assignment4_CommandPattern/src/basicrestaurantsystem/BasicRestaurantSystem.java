@@ -51,11 +51,12 @@ public class BasicRestaurantSystem {
     			if(readLine.equalsIgnoreCase("X")) {
     				break;
     			}
-    			//int orderItem = Integer.parseInt(readLine);
-    			//String[] orderResponse = SystemInterface.submitOrder(orderItem);
-//    			for (String item : orderResponse) { 
-//    			    System.out.println(item);
-//    			}
+    			int orderItem = Integer.parseInt(readLine);
+    			String[] orderResponse = SystemInterface.submitOrder(orderItem);
+    			
+    			for (String item : orderResponse) { 
+    			    System.out.println(item);
+    			}
     			break;
     		case "3":
     			// Display Tab

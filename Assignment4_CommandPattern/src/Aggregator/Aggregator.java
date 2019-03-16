@@ -10,8 +10,8 @@ public class Aggregator {
         menu = new Menu();
         populateMenu();
         
-        orders = new Orders();
-        populateOrders();
+        //orders = new Orders();
+        //populateOrders();
         
         tab = new Tab();
         
@@ -26,8 +26,8 @@ public class Aggregator {
     }
     
 	public Orders submitOrder() {
-		
-		return null;
+		//this.orders = orders;
+		return orders;
 	}
 	
 	public Tab getTab() {
@@ -51,16 +51,13 @@ public class Aggregator {
     }
     
     // temp for testing
-    private void populateOrders() {
-    	orders.addItem(new OrderItem(3));
-    	orders.addItem(new OrderItem(2));
-    	orders.addItem(new OrderItem(1));
-    }
+//    private void populateOrders() {
+//    	orders.addItem(new OrderItem(3));
+//    	orders.addItem(new OrderItem(2));
+//    	orders.addItem(new OrderItem(1));
+//    }
     
     private Tab calculateTab() {
-//    	this.orders = orders;
-//    	this.menu = menu;
-//    	this.tab = tab;
     	
     	String[] orderedItems = new String[10];
     	OrderItem[] items = orders.getOrderItems();
@@ -74,14 +71,11 @@ public class Aggregator {
     		    //System.out.println(menuItem.getDescription());
     		    
     		    tab.addItem(menuItem); /// menuItem.getDescription() + "\t" + menuItem.getPrice();
-    		    tab.setTotal(menuItem.getPrice()); //= subtotal + menuItem.getPrice();
-    		    
+    		    tab.setTotal(menuItem.getPrice()); //= subtotal + menuItem.getPrice();	    
     		}
 		    
 		}
-    		
-    		// get all the order order item values and * by menu prices and grab description to return
-   
+      
 		return tab;
 	}
 }

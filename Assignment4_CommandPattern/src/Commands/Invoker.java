@@ -15,10 +15,11 @@ public class Invoker {
 		return (Tab) new CMDGetTab(agg).execute();
 	}
     
-//    public static Orders submitOrder(int itemNumber){
-//    	OrderItem orderItem = new OrderItem(itemNumber);
-//    	Orders newOrder = new Orders(orderItem);
-//        return (Orders) new CMDSubmitOrder(agg).execute();
-//    }
+    public static Orders submitOrder(int itemNumber){
+    	OrderItem item = new OrderItem(itemNumber);
+    	Orders newOrder = new Orders();
+    	newOrder.addItem(item);
+        return (Orders) new CMDSubmitOrder(agg, newOrder).execute();
+    }
     
 }
