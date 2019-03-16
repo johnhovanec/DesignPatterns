@@ -31,12 +31,12 @@ public class BasicRestaurantSystem {
     		switch (readLine) {
     		case "1":
     			// Display Menu
-    			System.out.printf("\n------- Our Menu -------\n");
+    			System.out.printf("\n----------------      Our Menu    ----------------\n");
     			String[] menuItems = SystemInterface.getMenu();
     			for (String item : menuItems) { 
     			    System.out.println(item);
     			}
-    			System.out.printf("\n------------------------\n");
+    			System.out.printf("\n--------------------------------------------------\n\n");
     			break;
     		case "2":
     			// Submit Order

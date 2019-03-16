@@ -50,32 +50,17 @@ public class Aggregator {
         menu.addItem(new MenuItem(10, "Chap Chae", 11.80));
     }
     
-    // temp for testing
-//    private void populateOrders() {
-//    	orders.addItem(new OrderItem(3));
-//    	orders.addItem(new OrderItem(2));
-//    	orders.addItem(new OrderItem(1));
-//    }
-    
     private Tab calculateTab() {
+    	OrderItem item = orders.getOrderItem();
     	
-    	String[] orderedItems = new String[10];
-    	OrderItem[] items = orders.getOrderItems();
-    	
-    	for (int i = 0; i < items.length; i++) { 
-    		if (items[i]!= null) {
-    			//System.out.println(items[i].getItemNum());
-    		    int itemNumber = items[i].getItemNum();
-    		    
+    		if (item!= null) {
+    		    int itemNumber = item.getItemNum();
     		    MenuItem menuItem = menu.getOrderItem(itemNumber);
-    		    //System.out.println(menuItem.getDescription());
     		    
     		    tab.addItem(menuItem); /// menuItem.getDescription() + "\t" + menuItem.getPrice();
     		    tab.setTotal(menuItem.getPrice()); //= subtotal + menuItem.getPrice();	    
     		}
 		    
-		}
-      
 		return tab;
 	}
 }

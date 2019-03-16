@@ -20,8 +20,12 @@ public class Orders {
         order_items[findAvailIndex()] = item;
     }
     
-    protected OrderItem[] getOrderItems() {
-    	return this.order_items;
+    protected OrderItem getOrderItem() {
+    	return this.order_items[0];
+    }
+    
+    protected void clearOrderItems() {
+    	this.order_items = null;
     }
     
     
