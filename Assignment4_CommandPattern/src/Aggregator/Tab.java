@@ -12,10 +12,9 @@ public class Tab {
 	
 	public Tab(Tab otherTab) {
 		tab_items = new MenuItem[10];
-		//total = otherTab.total;						// copy constructor
+		total = otherTab.total;						// copy constructor
         System.arraycopy(otherTab.tab_items, 0, tab_items, 0, 
         		tab_items.length);
-        
 	}
 
 	public void reset(){
@@ -23,13 +22,6 @@ public class Tab {
     }
 	
 	public boolean hasNext(){
-//        if(current == tab_items.length)
-//            return false;
-//        
-//        if(current == tab_items.length - 1)
-//        	return tab_items[current] != null;
-//     
-//        return tab_items[current + 1] != null;
 		if(tab_items[current + 1] == null)
 			return false;
 		
@@ -42,7 +34,10 @@ public class Tab {
 	
 	public void setTotal(Double price) {
 		total = total + price;
-		//return total;
+	}
+	
+	public double getTotal() {
+		return total;
 	}
 	
 	public void addItem(MenuItem item){

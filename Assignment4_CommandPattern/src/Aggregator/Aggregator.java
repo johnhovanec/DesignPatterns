@@ -65,8 +65,6 @@ public class Aggregator {
     	String[] orderedItems = new String[10];
     	OrderItem[] items = orders.getOrderItems();
     	
-    	System.out.println("++++++++++++++++++++++");
-    	
     	for (int i = 0; i < items.length; i++) { 
     		if (items[i]!= null) {
     			//System.out.println(items[i].getItemNum());

@@ -34,6 +34,9 @@ public class SystemInterface {
             displayLines.add(tab.getNextItem().toString());
         }
         displayLines.add(tab.getNextItem().toString());
+        
+        // The tab total is appended to the end of the list
+    	displayLines.add("Total: $" + String.valueOf(tab.getTotal()));
     	
     	return (String[]) displayLines.toArray(new String[0]);
     }
