@@ -40,7 +40,7 @@ public class BasicRestaurantSystem {
     			break;
     		case "2":
     			// Submit Order
-    			System.out.println("Please choose a main dish to order.");
+    			System.out.println("Please choose a main dish to order.\n");
     			menuItems = SystemInterface.getMenu();
     			for (String item : menuItems) { 
     			    System.out.println(item);

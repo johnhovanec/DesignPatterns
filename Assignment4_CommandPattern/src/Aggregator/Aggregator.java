@@ -13,7 +13,7 @@ public class Aggregator {
         orders = new Orders();
         //populateOrders();
         
-        tab = new Tab();
+        //tab = new Tab();
         
     }
 
@@ -31,8 +31,8 @@ public class Aggregator {
 	}
 	
 	public Tab getTab() {
-        tab = calculateTab();
-        return tab;
+		Tab tab = new Tab();
+        return calculateTab(tab);
 	}
     
     // --- private methods
@@ -50,7 +50,7 @@ public class Aggregator {
         menu.addItem(new MenuItem(10, "Chap Chae", 11.80));
     }
     
-    private Tab calculateTab() {
+    private Tab calculateTab(Tab tab) {
     	OrderItem[] items = orders.getOrderItems();
     	
     	
