@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class SystemInterface {
     
-    public static String[] getMenu(){
+    public static Menu getMenu(){
         Menu menu = Invoker.getMenu();
         
         ArrayList<String> displayLines = new ArrayList<>();
@@ -16,12 +16,13 @@ public class SystemInterface {
             displayLines.add(menu.getNextItem().toString());
         }
         
-        return (String[]) displayLines.toArray(new String[displayLines.size()]);
+        //return (String[]) displayLines.toArray(new String[displayLines.size()]);
+        return menu;
     }
     
-    public static String[] submitOrder(int orderItem) {
+    public static String submitOrder(int orderItem) {
     	Orders orders = Invoker.submitOrder(orderItem);
-    	String[] ordersArray = new String[] {orders.getLastItemAdded()};
+    	String ordersArray = orders.getLastItemAdded();
     	//ArrayList<String> displayLines = new ArrayList<>();
     	//return (String[]) displayLines.toArray(new String[displayLines.size()]);
     	return ordersArray;

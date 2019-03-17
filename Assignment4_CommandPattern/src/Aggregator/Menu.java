@@ -1,5 +1,8 @@
 package Aggregator;
 
+import Iterators.Iterator;
+import Iterators.MenuIterator;
+
 public class Menu {
     private MenuItem[] menu_items;
     private int current;
@@ -37,13 +40,17 @@ public class Menu {
         return menu_items[current++];
     }
     
+    public int getLength() {
+    	return menu_items.length;
+    }
+    
     protected MenuItem getOrderItem(int itemNumber) {
     	return menu_items[itemNumber - 1];
     }
     
-//    protected MenuItem getOrderItemDescription(int itemNumber) {
-//    	return menu_items[itemNumber - 1].getDescription();
-//    }
+    public Iterator createIterator() {
+    	return new MenuIterator(menu_items);
+    }
     
     // --- private methods
     private void initMenu(){
