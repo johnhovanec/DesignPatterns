@@ -25,8 +25,8 @@ public class Aggregator {
         return orders;
     }
     
-	public Orders submitOrder(Orders order) {
-		this.orders = order;
+	public Orders submitOrder(OrderItem item) {
+		orders.addItem(item);
 		return orders;
 	}
 	
@@ -51,16 +51,23 @@ public class Aggregator {
     }
     
     private Tab calculateTab() {
-    	OrderItem item = orders.getOrderItem();
+    	OrderItem[] items = orders.getOrderItems();
     	
-    		if (item!= null) {
-    		    int itemNumber = item.getItemNum();
+    	
+    	for (int i = 0; i < items.length; i++) { 
+    		if (items[i]!= null) {
+    			//System.out.println(items[i].getItemNum());
+    		    int itemNumber = items[i].getItemNum();
+    		    
     		    MenuItem menuItem = menu.getOrderItem(itemNumber);
+    		    //System.out.println(menuItem.getDescription());
     		    
     		    tab.addItem(menuItem); /// menuItem.getDescription() + "\t" + menuItem.getPrice();
     		    tab.setTotal(menuItem.getPrice()); //= subtotal + menuItem.getPrice();	    
     		}
 		    
+		}
+      
 		return tab;
 	}
 }

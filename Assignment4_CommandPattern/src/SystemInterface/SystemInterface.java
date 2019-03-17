@@ -21,7 +21,7 @@ public class SystemInterface {
     
     public static String[] submitOrder(int orderItem) {
     	Orders orders = Invoker.submitOrder(orderItem);
-    	String[] ordersArray = new String[] {orders.toString()};
+    	String[] ordersArray = new String[] {orders.getLastItemAdded()};
     	//ArrayList<String> displayLines = new ArrayList<>();
     	//return (String[]) displayLines.toArray(new String[displayLines.size()]);
     	return ordersArray;

@@ -3,11 +3,11 @@ package Aggregator;
 import java.util.Arrays;
 
 public class Orders {
-    private OrderItem[] order_items;
+    private OrderItem[] order_items = new OrderItem[10];
     private int current;
     
     public Orders() {
-    	order_items = new OrderItem[10];
+    	//order_items = new OrderItem[10];
     }
     
     public Orders(Orders otherOrder) {
@@ -18,10 +18,11 @@ public class Orders {
     
     public void addItem(OrderItem item){
         order_items[findAvailIndex()] = item;
+        current++;
     }
     
-    protected OrderItem getOrderItem() {
-    	return this.order_items[0];
+    protected OrderItem[] getOrderItems() {
+    	return this.order_items;
     }
     
     protected void clearOrderItems() {
@@ -47,9 +48,14 @@ public class Orders {
         return i;
     }
 
-	@Override
-	public String toString() {
-		int orderNum = order_items[0].getItemNum();
+	public String getLastItemAdded() {
+		int last = 0;
+		for(int i = 0; i < order_items.length; i++) {
+			if (order_items[i] != null)
+				last = i;
+		}
+		
+		int orderNum = order_items[last].getItemNum();
 		return "Order added for item number: " + String.valueOf(orderNum);
 	}
     
