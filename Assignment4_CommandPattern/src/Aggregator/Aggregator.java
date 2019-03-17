@@ -4,17 +4,12 @@ public class Aggregator {
     
     private Menu menu;
     private Orders orders;
-    private Tab tab;
     
     public Aggregator(){
         menu = new Menu();
         populateMenu();
         
         orders = new Orders();
-        //populateOrders();
-        
-        //tab = new Tab();
-        
     }
 
 	public Menu getMenu(){
@@ -34,9 +29,7 @@ public class Aggregator {
 		Tab tab = new Tab();
         return calculateTab(tab);
 	}
-    
-    // --- private methods
-    
+
     private void populateMenu(){
         menu.addItem(new MenuItem(1, "Roast Beef", 12.50));
         menu.addItem(new MenuItem(2, "Turkey Dinner", 9.50));
@@ -53,19 +46,14 @@ public class Aggregator {
     private Tab calculateTab(Tab tab) {
     	OrderItem[] items = orders.getOrderItems();
     	
-    	
     	for (int i = 0; i < items.length; i++) { 
     		if (items[i]!= null) {
-    			//System.out.println(items[i].getItemNum());
     		    int itemNumber = items[i].getItemNum();
-    		    
     		    MenuItem menuItem = menu.getOrderItem(itemNumber);
-    		    //System.out.println(menuItem.getDescription());
     		    
-    		    tab.addItem(menuItem); /// menuItem.getDescription() + "\t" + menuItem.getPrice();
-    		    tab.setTotal(menuItem.getPrice()); //= subtotal + menuItem.getPrice();	    
+    		    tab.addItem(menuItem); 
+    		    tab.setTotal(menuItem.getPrice()); 
     		}
-		    
 		}
       
 		return tab;

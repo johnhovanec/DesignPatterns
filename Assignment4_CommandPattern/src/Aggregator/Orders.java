@@ -1,13 +1,10 @@
 package Aggregator;
 
-import java.util.Arrays;
-
 public class Orders {
     private OrderItem[] order_items = new OrderItem[10];
     private int current;
     
     public Orders() {
-    	//order_items = new OrderItem[10];
     }
     
     public Orders(Orders otherOrder) {
@@ -29,7 +26,6 @@ public class Orders {
     	this.order_items = null;
     }
     
-    
     public int getLength(Orders order){
         int count = 0;
         for(int i = 0; i < order_items.length; i++) {
@@ -39,7 +35,6 @@ public class Orders {
         return count;
     }
     
-    // private methods
     private int findAvailIndex(){
         int i = 0;
         while(order_items[i] != null)

@@ -31,6 +31,7 @@ public class BasicRestaurantSystem {
     			for (String item : menuItems) { 
     			    System.out.println(item);
     			}
+    			
     			System.out.printf("\n--------------------------------------------------\n\n");
     			break;
     		case "2":
@@ -70,6 +71,5 @@ public class BasicRestaurantSystem {
     		}
         }
         System.out.println("Goodbye");
-        
 	}
 }

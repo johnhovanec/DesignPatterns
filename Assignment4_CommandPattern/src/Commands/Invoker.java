@@ -17,8 +17,6 @@ public class Invoker {
     
     public static Orders submitOrder(int itemNumber){
     	OrderItem item = new OrderItem(itemNumber);
-    	//Orders newOrder = new Orders();
-    	//newOrder.addItem(item);
         return (Orders) new CMDSubmitOrder(agg, item).execute();
     }
     
