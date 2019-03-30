@@ -10,6 +10,17 @@ public class StoreItem {
 		itemDescription = description;
 		itemPrice = price;
 	}
-
+	
+	public String getItemCode() {
+		return itemCode;
+	}
+	
+	public String getItemDescription() {
+		return itemDescription;
+	}
+	
+	public String getItemPrice() {
+		return itemPrice;
+	}
 	// appropriate getters and setters
 }
