@@ -10,16 +10,20 @@ public class PurchasedItems {
 	}
 
 	public void addItem(StoreItem item) {
-		// ...
+		items.add(item);
 	}
 
 	public double getTotalCost() {
-		// ...
-		return 0.00;
+		double total = 0;
+		for(StoreItem item : items)
+		    total += Double.parseDouble(item.getItemPrice());
+		return total;
 	}
 
 	public boolean containsItem(String itemCode) {
-		// ...
-		return false;
+		if (items.contains(itemCode))
+			return true;
+		else
+			return false;
 	}
 }

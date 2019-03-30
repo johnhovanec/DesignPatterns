@@ -5,7 +5,7 @@
  */
 package basicrestaurantsystem;
 
-import java.util.Scanner;
+	import java.util.Scanner;
 
 import Aggregator.*;
 import SystemInterface.SystemInterface;

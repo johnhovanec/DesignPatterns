@@ -35,6 +35,7 @@ public class Main {
 			}
 		}
 		System.out.println("Goodbye");
+		scanner.close();
 		// 1. Creates a Data object (either from Java API or date entered by user)
 		// 2. Creates a PurchasedItems object (selections made by user)
 		// 3. Constructs a ReceiptFactory object.

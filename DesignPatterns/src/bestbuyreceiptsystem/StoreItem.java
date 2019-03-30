@@ -11,6 +11,7 @@ public class StoreItem {
 		itemPrice = price;
 	}
 	
+	// appropriate getters and setters
 	public String getItemCode() {
 		return itemCode;
 	}
@@ -22,5 +23,5 @@ public class StoreItem {
 	public String getItemPrice() {
 		return itemPrice;
 	}
-	// appropriate getters and setters
+	
 }
